@@ -12,7 +12,7 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 
 import { AppComponent } from './app.component';
 import { GridComponent } from './components/grid/grid.component';
-import { MainComponent } from './main/main.component';
+import { MainComponent } from './components/main/main.component';
 
 @NgModule({
   declarations: [
