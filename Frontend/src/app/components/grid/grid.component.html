@@ -1,0 +1,37 @@
+<div>
+    <div class="container">
+        <div class="grid" [ngStyle]="{'grid-template-columns': 'repeat('+x+', 20px)', 'grid-template-rows': 'repeat('+y+', 20px)'}">
+            <ng-container *ngFor="let cell of world; let i = index">
+                <div [ngClass]="cell ? 'full-cell':'empty-cell'" (click)="cellClicked(i)"></div>
+            </ng-container>
+        </div>
+    </div>
+
+    <div class="p-grid p-fluid p-mt-2">
+        <div class="p-field p-col-1">
+            <label for="x">X size</label>
+            <p-inputNumber inputId="x" mode="decimal" [min]="0" [(ngModel)]="newX" [useGrouping]="false"></p-inputNumber>
+        </div>
+        <div class="p-field p-col-1">
+            <label for="y">Y size</label>
+            <p-inputNumber inputId="y" mode="decimal" [min]="0" [(ngModel)]="newY" [useGrouping]="false"></p-inputNumber>
+        </div>
+
+        <div class="p-field p-col-2 p-as-end">
+            <p-splitButton label="Generate random" (onClick)="generateSeed(seed.random)" [model]="items"></p-splitButton>
+        </div>
+
+        <div class="p-field p-col-1 p-as-end">
+            <p-button label="Start" (onClick)="start()"></p-button>
+        </div>
+
+        <div class="p-field p-col-1 p-as-end">
+            <p-button label="Stop" (onClick)="stop()"></p-button>
+        </div>
+
+        <div class="p-field p-col-3">
+            <label for="speed">Refresh delay ({{delay}}ms)</label>
+            <p-slider id="speed" [styleClass]="'p-mt-3'" [min]="100" [step]="10" [max]="1000" [(ngModel)]="delay"></p-slider>
+        </div>
+    </div>
+</div>
